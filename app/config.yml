@@ -1,0 +1,17 @@
+test:
+  base_url: http://getplatonic-staging.herokuapp.com/api/v1/
+development:
+  base_url: http://localhost:5000/api/v1/
+staging:
+  base_url: http://getplatonic-staging.herokuapp.com/api/v1/
+release:
+  base_url: http://getplatonic.com/api/v1/
+
+# testflight_app_token: da7a521b-6bd9-4edf-889a-a9f531943a79
+# crittercism_app_id: 52839f688b2e3352cf000007
+
+# parse_app_id: vc5QBV8ShGq9T9NNHreDd1pO6ywD9j9exUkD83hL
+# parse_client_key: 5Ix8mUvJ188bueta5AjAe3IP5ijrXOR4salIzojN
+
+# urban_airship_development_app_key: NogOFzxKQbiQVfaFmbPlmQ
+# urban_airship_development_app_secret: e5sZfnpRRHuSMDEEGUSgaw

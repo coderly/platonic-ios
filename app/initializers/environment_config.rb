@@ -1,0 +1,1 @@
+ENVIRONMENT_CONFIG = {"test"=>{"base_url"=>"http://getplatonic-staging.herokuapp.com/api/v1/"}, "development"=>{"base_url"=>"http://localhost:5000/api/v1/"}, "staging"=>{"base_url"=>"http://getplatonic-staging.herokuapp.com/api/v1/"}, "release"=>{"base_url"=>"http://getplatonic.com/api/v1/"}}
