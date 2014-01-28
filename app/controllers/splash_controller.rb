@@ -9,6 +9,8 @@ class SplashController < UIViewController
 
     rmq.append(UILabel, :facebook_notice_label)
 
+    @picture_container = rmq.append(DraggableView, :picture_container).get
+
     rmq(@facebook_button).on(:tap) do |sender|
       rmq(sender).animations.throb(
         completion: -> (finished, q) {
@@ -22,13 +24,6 @@ class SplashController < UIViewController
 
     @menu_button.addTarget(self, action: :tapped_menu_button, forControlEvents:UIControlEventTouchUpInside)
     @menu_button.frame = CGRectMake(0,0,34,34)
-
-    # @menu_button.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-
-
-    # rmq(@menu_button).on(:tap) do |sender|
-    #   tapped_menu_button
-    # end
 
     self.navigationItem.leftBarButtonItem = create_menu_button
 

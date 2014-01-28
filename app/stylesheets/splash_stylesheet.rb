@@ -19,4 +19,9 @@ class SplashStylesheet < ApplicationStylesheet
     st.text = "We'll never post anything to Facebook."
     st.font = font.notice
   end
+
+  def picture_container(st)
+    st.frame = {l: 10, t: 200, w: 300, h: 225 }
+  end
+
 end
