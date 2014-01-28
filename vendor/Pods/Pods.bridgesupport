@@ -177,6 +177,7 @@
 <enum name='COCOAPODS_VERSION_MAJOR_AFNetworking_Serialization' value='2'/>
 <enum name='COCOAPODS_VERSION_MAJOR_AFNetworking_UIKit' value='2'/>
 <enum name='COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK' value='3'/>
+<enum name='COCOAPODS_VERSION_MAJOR_RESideMenu' value='3'/>
 <enum name='COCOAPODS_VERSION_MINOR_AFNetworking' value='0'/>
 <enum name='COCOAPODS_VERSION_MINOR_AFNetworking_NSURLConnection' value='0'/>
 <enum name='COCOAPODS_VERSION_MINOR_AFNetworking_NSURLSession' value='0'/>
@@ -185,6 +186,7 @@
 <enum name='COCOAPODS_VERSION_MINOR_AFNetworking_Serialization' value='0'/>
 <enum name='COCOAPODS_VERSION_MINOR_AFNetworking_UIKit' value='0'/>
 <enum name='COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK' value='10'/>
+<enum name='COCOAPODS_VERSION_MINOR_RESideMenu' value='4'/>
 <enum name='COCOAPODS_VERSION_PATCH_AFNetworking' value='3'/>
 <enum name='COCOAPODS_VERSION_PATCH_AFNetworking_NSURLConnection' value='3'/>
 <enum name='COCOAPODS_VERSION_PATCH_AFNetworking_NSURLSession' value='3'/>
@@ -193,6 +195,7 @@
 <enum name='COCOAPODS_VERSION_PATCH_AFNetworking_Serialization' value='3'/>
 <enum name='COCOAPODS_VERSION_PATCH_AFNetworking_UIKit' value='3'/>
 <enum name='COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK' value='0'/>
+<enum name='COCOAPODS_VERSION_PATCH_RESideMenu' value='0'/>
 <enum name='FBAppCallErrorServiceBusy' value='4'/>
 <enum name='FBAppCallErrorUnknown' value='1'/>
 <enum name='FBAppCallErrorUnknownMethod' value='3'/>
@@ -305,6 +308,9 @@
 <function name='FBEncodeBase64'>
 <arg declared_type='NSData*' name='data' type='@'/>
 <retval declared_type='NSString*' type='@'/>
+</function>
+<function name='RESideMenuUIKitIsFlatMode'>
+<retval declared_type='BOOL' type='B'/>
 </function>
 <function name='fbdfl_SecRandomCopyBytes'>
 <arg declared_type='SecRandomRef' name='rnd' type='^{__SecRandom=}'/>
@@ -6013,6 +6019,31 @@
 <arg declared_type='NSString*' index='0' name='zip' type='@'/>
 <retval declared_type='void' type='v'/>
 </method>
+<method selector='sideMenu:didHideMenuViewController:'>
+<arg declared_type='RESideMenu*' index='0' name='sideMenu' type='@'/>
+<arg declared_type='UIViewController*' index='1' name='menuViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='sideMenu:didRecognizePanGesture:'>
+<arg declared_type='RESideMenu*' index='0' name='sideMenu' type='@'/>
+<arg declared_type='UIPanGestureRecognizer*' index='1' name='recognizer' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='sideMenu:didShowMenuViewController:'>
+<arg declared_type='RESideMenu*' index='0' name='sideMenu' type='@'/>
+<arg declared_type='UIViewController*' index='1' name='menuViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='sideMenu:willHideMenuViewController:'>
+<arg declared_type='RESideMenu*' index='0' name='sideMenu' type='@'/>
+<arg declared_type='UIViewController*' index='1' name='menuViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='sideMenu:willShowMenuViewController:'>
+<arg declared_type='RESideMenu*' index='0' name='sideMenu' type='@'/>
+<arg declared_type='UIViewController*' index='1' name='menuViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
 <method selector='start_time'>
 <retval declared_type='NSString*' type='@'/>
 </method>
@@ -6072,6 +6103,157 @@
 </method>
 <method selector='zip'>
 <retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='RESideMenu'>
+<method selector='animationDuration'>
+<retval declared_type='NSTimeInterval' type='d'/>
+</method>
+<method selector='backgroundImage'>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+<method selector='bouncesHorizontally'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='contentViewController'>
+<retval declared_type='UIViewController*' type='@'/>
+</method>
+<method selector='contentViewInLandscapeOffsetCenterX'>
+<retval declared_type='CGFloat' type='f' type64='d'/>
+</method>
+<method selector='contentViewInPortraitOffsetCenterX'>
+<retval declared_type='CGFloat' type='f' type64='d'/>
+</method>
+<method selector='contentViewScaleValue'>
+<retval declared_type='CGFloat' type='f' type64='d'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='hideMenuViewController'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='initWithContentViewController:menuViewController:'>
+<arg declared_type='UIViewController*' index='0' name='contentViewController' type='@'/>
+<arg declared_type='UIViewController*' index='1' name='menuViewController' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='interactivePopGestureRecognizerEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='menuViewController'>
+<retval declared_type='UIViewController*' type='@'/>
+</method>
+<method selector='panFromEdge'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='panGestureEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='parallaxContentMaximumRelativeValue'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='parallaxContentMinimumRelativeValue'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='parallaxEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='parallaxMenuMaximumRelativeValue'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='parallaxMenuMinimumRelativeValue'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='presentMenuViewController'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='scaleBackgroundImageView'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='scaleContentView'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='setAnimationDuration:'>
+<arg declared_type='NSTimeInterval' index='0' name='animationDuration' type='d'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setBackgroundImage:'>
+<arg declared_type='UIImage*' index='0' name='backgroundImage' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setBouncesHorizontally:'>
+<arg declared_type='BOOL' index='0' name='bouncesHorizontally' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setContentViewController:'>
+<arg declared_type='UIViewController*' index='0' name='contentViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setContentViewController:animated:'>
+<arg declared_type='UIViewController*' index='0' name='contentViewController' type='@'/>
+<arg declared_type='BOOL' index='1' name='animated' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setContentViewInLandscapeOffsetCenterX:'>
+<arg declared_type='CGFloat' index='0' name='contentViewInLandscapeOffsetCenterX' type='f' type64='d'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setContentViewInPortraitOffsetCenterX:'>
+<arg declared_type='CGFloat' index='0' name='contentViewInPortraitOffsetCenterX' type='f' type64='d'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setContentViewScaleValue:'>
+<arg declared_type='CGFloat' index='0' name='contentViewScaleValue' type='f' type64='d'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg declared_type='id' index='0' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setInteractivePopGestureRecognizerEnabled:'>
+<arg declared_type='BOOL' index='0' name='interactivePopGestureRecognizerEnabled' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setMenuViewController:'>
+<arg declared_type='UIViewController*' index='0' name='menuViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setPanFromEdge:'>
+<arg declared_type='BOOL' index='0' name='panFromEdge' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setPanGestureEnabled:'>
+<arg declared_type='BOOL' index='0' name='panGestureEnabled' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setParallaxContentMaximumRelativeValue:'>
+<arg declared_type='id' index='0' name='parallaxContentMaximumRelativeValue' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setParallaxContentMinimumRelativeValue:'>
+<arg declared_type='id' index='0' name='parallaxContentMinimumRelativeValue' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setParallaxEnabled:'>
+<arg declared_type='BOOL' index='0' name='parallaxEnabled' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setParallaxMenuMaximumRelativeValue:'>
+<arg declared_type='id' index='0' name='parallaxMenuMaximumRelativeValue' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setParallaxMenuMinimumRelativeValue:'>
+<arg declared_type='id' index='0' name='parallaxMenuMinimumRelativeValue' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setScaleBackgroundImageView:'>
+<arg declared_type='BOOL' index='0' name='scaleBackgroundImageView' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setScaleContentView:'>
+<arg declared_type='BOOL' index='0' name='scaleContentView' type='B'/>
+<retval declared_type='void' type='v'/>
 </method>
 </class>
 <class name='UIActivityIndicatorView'>
@@ -6228,6 +6410,24 @@
 <arg declared_type='NSURLSessionUploadTask*' index='0' name='task' type='@'/>
 <arg declared_type='BOOL' index='1' name='animated' type='B'/>
 <retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='UIViewController'>
+<method selector='re_displayController:frame:'>
+<arg declared_type='UIViewController*' index='0' name='controller' type='@'/>
+<arg declared_type='CGRect' index='1' name='frame' type='{CGRect={CGPoint=ff}{CGSize=ff}}' type64='{CGRect={CGPoint=dd}{CGSize=dd}}'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='re_hideController:'>
+<arg declared_type='UIViewController*' index='0' name='controller' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSideMenuViewController:'>
+<arg declared_type='RESideMenu*' index='0' name='sideMenuViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='sideMenuViewController'>
+<retval declared_type='RESideMenu*' type='@'/>
 </method>
 </class>
 <class name='UIWebView'>
@@ -6989,6 +7189,33 @@
 <arg declared_type='NSString*' index='0' name='dialog' type='@'/>
 <arg declared_type='NSMutableDictionary*' index='1' name='parameters' type='@'/>
 <arg declared_type='FBSession*' index='2' name='session' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+<informal_protocol name='RESideMenuDelegate'>
+<method selector='sideMenu:didHideMenuViewController:' type='v16@0:4@8@12' type64='v32@0:8@16@24'>
+<arg declared_type='RESideMenu*' index='0' name='sideMenu' type='@'/>
+<arg declared_type='UIViewController*' index='1' name='menuViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='sideMenu:didRecognizePanGesture:' type='v16@0:4@8@12' type64='v32@0:8@16@24'>
+<arg declared_type='RESideMenu*' index='0' name='sideMenu' type='@'/>
+<arg declared_type='UIPanGestureRecognizer*' index='1' name='recognizer' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='sideMenu:didShowMenuViewController:' type='v16@0:4@8@12' type64='v32@0:8@16@24'>
+<arg declared_type='RESideMenu*' index='0' name='sideMenu' type='@'/>
+<arg declared_type='UIViewController*' index='1' name='menuViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='sideMenu:willHideMenuViewController:' type='v16@0:4@8@12' type64='v32@0:8@16@24'>
+<arg declared_type='RESideMenu*' index='0' name='sideMenu' type='@'/>
+<arg declared_type='UIViewController*' index='1' name='menuViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='sideMenu:willShowMenuViewController:' type='v16@0:4@8@12' type64='v32@0:8@16@24'>
+<arg declared_type='RESideMenu*' index='0' name='sideMenu' type='@'/>
+<arg declared_type='UIViewController*' index='1' name='menuViewController' type='@'/>
 <retval declared_type='void' type='v'/>
 </method>
 </informal_protocol>

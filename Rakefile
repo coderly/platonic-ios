@@ -40,6 +40,7 @@ Motion::Project::App.setup do |app|
   app.pods do
     pod 'AFNetworking', '~> 2.0'
     pod 'Facebook-iOS-SDK', '~> 3.10.0'
+    pod 'RESideMenu', '~> 3.4'
   end
 
   app.release do

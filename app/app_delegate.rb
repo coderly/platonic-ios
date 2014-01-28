@@ -38,6 +38,10 @@ class AppDelegate
     @auth ||= ServerAuth.shared
   end
 
+  def splash_controller
+    @splash_controller ||= SplashController.alloc.initWithNibName(nil, bundle:nil)
+  end
+
   def applicationDidBecomeActive(application)
     FacebookAuth.handleApplicationDidBecomeActive
 	end
@@ -59,6 +63,13 @@ class AppDelegate
   end
 
   def setup_window_for_logged_out_user
+    navigationController = NavigationController.alloc.initWithRootViewController(SplashController.alloc.init)
+    menuController = MenuViewController.alloc.initWithStyle(UITableViewStylePlain)
+
+    sideMenuController = RESideMenu.alloc.initWithContentViewController(navigationController, menuViewController:menuController)
+    sideMenuController.backgroundImage = UIImage.imageNamed("Stars")
+
+    window.rootViewController = sideMenuController
     # window.rootViewController = splash_controller
     show_window_if_hidden
   end
