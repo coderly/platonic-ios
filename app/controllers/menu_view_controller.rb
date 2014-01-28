@@ -16,7 +16,7 @@ class MenuViewController < UITableViewController
   def tableView(tableView, numberOfRowsInSection: section)
     case section
     when 0
-      2
+      4
     end
   end
 
@@ -39,6 +39,12 @@ class MenuViewController < UITableViewController
       when 1
         rmq(menu_icon_area).append(UIImageView, :messages_icon)
         rmq(cell).append(UILabel, :messages_label)
+      when 2
+        rmq(menu_icon_area).append(UIImageView, :settings_icon)
+        rmq(cell).append(UILabel, :settings_label)
+      when 3
+        rmq(menu_icon_area).append(UIImageView, :invite_icon)
+        rmq(cell).append(UILabel, :invite_label)
       end
     end
 

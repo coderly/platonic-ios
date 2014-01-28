@@ -3,6 +3,7 @@ class MenuViewStylesheet < ApplicationStylesheet
   def root_view(st)
     st.background_color = color.clear
     st.view.separatorColor = color.clear
+    st.view.rowHeight = 60
   end
 
   def table_header_view(st)
@@ -37,6 +38,18 @@ class MenuViewStylesheet < ApplicationStylesheet
     menu_icon(st)
   end
 
+  def settings_icon(st)
+    st.frame = {w: 32, h: 32}
+    st.image = image.resource('settings_icon')
+    menu_icon(st)
+  end
+
+  def invite_icon(st)
+    st.frame = {w: 32, h: 32}
+    st.image = image.resource('invite_icon')
+    menu_icon(st)
+  end
+
   def menu_label(st)
     st.frame = {l: 62, w: 200, h: 32}
     st.font = font.menu_label
@@ -53,4 +66,15 @@ class MenuViewStylesheet < ApplicationStylesheet
     menu_label(st)
     st.text = "Messages"
   end
+
+  def settings_label(st)
+    menu_label(st)
+    st.text = "Settings"
+  end
+
+  def invite_label(st)
+    menu_label(st)
+    st.text = "Invite"
+  end
+
 end

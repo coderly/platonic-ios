@@ -20,6 +20,7 @@ require 'afmotion'
 
 require 'yaml'
 
+DEVELOPMENT_CERTIFICATE = 'iPhone Developer: Joshua Smith (2MK63237GG)'
 FACEBOOK_PRODUCTION_APP_ID = '571685872908504'
 
 task :'build:device' => 'generate_config'
@@ -34,9 +35,14 @@ end
 
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
-  app.name = 'platonic'
+  app.name = 'Platonic'
+  app.version = '0.1'
 
-    # Cocoapods
+  app.identifier = 'com.getPlatonic.Platonic'
+  app.seed_id = 'XCUKPHF39R'
+  app.sdk_version = "7.0"
+
+  # Cocoapods
   app.pods do
     pod 'AFNetworking', '~> 2.0'
     pod 'Facebook-iOS-SDK', '~> 3.10.0'
@@ -50,6 +56,16 @@ Motion::Project::App.setup do |app|
   # Development configuration
   app.development do
     app.info_plist['environment'] = 'development'
+
+    app.codesign_certificate = DEVELOPMENT_CERTIFICATE
+    app.provisioning_profile = 'certs/PlatonicDevelopment.mobileprovision'
+
+    app.entitlements['application-identifier'] = app.seed_id + '.' + app.identifier
+    app.entitlements['keychain-access-groups'] = [
+        app.seed_id + '.' + app.identifier
+    ]
+    app.entitlements['aps-environment'] = 'development'
+    app.entitlements['get-task-allow'] = true
 	end
 
  #  app.testflight do

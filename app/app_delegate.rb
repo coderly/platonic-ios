@@ -51,27 +51,40 @@ class AppDelegate
   end
 
   def setup_window_for_logged_in_user
-    Context.shared.reload do |r|
+    # Context.shared.reload do |r|
       # if onboarded?
       #   window.rootViewController = slide_menu_controller
       # else
       #   window.rootViewController = onboarding_flow_controller
       # end
 
-      show_window_if_hidden
-    end
+    side_menu_controller.backgroundImage = UIImage.imageNamed("Stars")
+    window.rootViewController = side_menu_controller
+
+    show_window_if_hidden
+    # end
   end
 
   def setup_window_for_logged_out_user
-    navigationController = NavigationController.alloc.initWithRootViewController(SplashController.alloc.init)
-    menuController = MenuViewController.alloc.initWithStyle(UITableViewStylePlain)
-
-    sideMenuController = RESideMenu.alloc.initWithContentViewController(navigationController, menuViewController:menuController)
-    sideMenuController.backgroundImage = UIImage.imageNamed("Stars")
-
-    window.rootViewController = sideMenuController
-    # window.rootViewController = splash_controller
+    side_menu_controller.backgroundImage = UIImage.imageNamed("Stars")
+    window.rootViewController = side_menu_controller
     show_window_if_hidden
+  end
+
+  def navigation_controller
+    @navigation_controller ||= NavigationController.alloc.initWithRootViewController(splash_controller)
+  end
+
+  def splash_controller
+    @splash_controller ||= SplashController.alloc.init
+  end
+
+  def menu_controller
+    @menu_controller ||= MenuViewController.alloc.initWithStyle(UITableViewStylePlain)
+  end
+
+  def side_menu_controller
+    @side_menu_controller ||= RESideMenu.alloc.initWithContentViewController(navigation_controller, menuViewController: menu_controller)
   end
 
   def show_window_if_hidden

@@ -52,12 +52,6 @@ class SplashController < UIViewController
 
 	def create_menu_button
 		UIBarButtonItem.alloc.initWithCustomView(@menu_button)
-
-
-		# UIBarButtonItem.alloc.initWithImage(UIImage.imageNamed("menu_icon"),
-		# 	style:UIBarButtonItemStylePlain,
-		# 	target:self,
-		# 	action: :on_tap_reveal_menu)
 	end
 
 	def on_tap_reveal_menu
