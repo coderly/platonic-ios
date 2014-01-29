@@ -9,8 +9,6 @@ class SplashController < UIViewController
 
     rmq.append(UILabel, :facebook_notice_label)
 
-    @picture_container = rmq.append(DraggableView, :picture_container).get
-
     rmq(@facebook_button).on(:tap) do |sender|
       rmq(sender).animations.throb(
         completion: -> (finished, q) {
@@ -18,15 +16,6 @@ class SplashController < UIViewController
         }
       )
     end
-
-    @menu_button = UIButton.alloc.init
-		@menu_button.setImage(UIImage.imageNamed("menu_icon"), forState:UIControlStateNormal)
-
-    @menu_button.addTarget(self, action: :tapped_menu_button, forControlEvents:UIControlEventTouchUpInside)
-    @menu_button.frame = CGRectMake(0,0,34,34)
-
-    self.navigationItem.leftBarButtonItem = create_menu_button
-
 
     true
 	end
@@ -37,19 +26,7 @@ class SplashController < UIViewController
 		auth.show_login_dialog
 	end
 
-	def tapped_menu_button
-		self.sideMenuViewController.presentMenuViewController
-	end
-
   def auth
     ServerAuth.shared
   end
-
-	def create_menu_button
-		UIBarButtonItem.alloc.initWithCustomView(@menu_button)
-	end
-
-	def on_tap_reveal_menu
-		self.sideMenuViewController.presentMenuViewController
-	end
 end

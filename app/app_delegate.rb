@@ -66,17 +66,20 @@ class AppDelegate
   end
 
   def setup_window_for_logged_out_user
-    side_menu_controller.backgroundImage = UIImage.imageNamed("Stars")
-    window.rootViewController = side_menu_controller
+    window.rootViewController = splash_controller
     show_window_if_hidden
   end
 
   def navigation_controller
-    @navigation_controller ||= NavigationController.alloc.initWithRootViewController(splash_controller)
+    @navigation_controller ||= NavigationController.alloc.initWithRootViewController(home_controller)
   end
 
   def splash_controller
     @splash_controller ||= SplashController.alloc.init
+  end
+
+  def home_controller
+    @home_controller ||= HomeController.alloc.init
   end
 
   def menu_controller
